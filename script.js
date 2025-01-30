@@ -1,45 +1,48 @@
 function calcular() {
 const res = document.getElementById('tabela-imc')
-const suaAltura = document.getElementById('altura').value
-const seuPeso = document.getElementById('peso').value
+const suaAltura = parseFloat(document.getElementById('altura').value)
+const seuPeso = parseFloat(document.getElementById('peso').value)
 
-let IMC = seuPeso / suaAltura**2
+
+if (isNaN(suaAltura) || isNaN(seuPeso) || suaAltura <= 1.00 || suaAltura > 2.20 || seuPeso <= 0 || seuPeso >= 200) {
+    alert("Digite número validos, siga os exemplos.")
+    return
+}
+
+    let IMC = seuPeso / suaAltura**2
+    let classificaçao;
+    const container = document.createElement('div')
+    container.classList.add('resultado-imc')
 
 if (IMC < 18.5) {
-    const container = document.createElement('div')
-    const seuIMC = document.createElement('p')
-    seuIMC.textContent = `Seu IMC é de ${IMC.toFixed(2)} e a classificação é Magreza`
-    container.appendChild(seuIMC)
-    res.appendChild(container)
-} else if (IMC > 18.5 && IMC <= 24.9) {
-    const container = document.createElement('div')
-    const seuIMC = document.createElement('p')
-    seuIMC.textContent = `Seu IMC é de ${IMC.toFixed(2)} e a classificação é Normal`
-    container.appendChild(seuIMC)
-    res.appendChild(container)
-} else if (IMC > 25 && IMC <= 29.9) {
-    const container = document.createElement('div')
-    const seuIMC = document.createElement('p')
-    seuIMC.textContent = `Seu IMC é de ${IMC.toFixed(2)} e a classificação é Sobrepeso`
-    container.appendChild(seuIMC)
-    res.appendChild(container)
-} else if (IMC > 30 && IMC <= 34.9) {
-    const container = document.createElement('div')
-    const seuIMC = document.createElement('p')
-    seuIMC.textContent = `Seu IMC é de ${IMC.toFixed(2)} e a classificação é Obesidade grau I`
-    container.appendChild(seuIMC)
-    res.appendChild(container)
-} else if (IMC > 35 && IMC < 39.9) {
-    const container = document.createElement('div')
-    const seuIMC = document.createElement('p')
-    seuIMC.textContent = `Seu IMC é de ${IMC.toFixed(2)} e a classificação é Obesidade grau II`
-    container.appendChild(seuIMC)
-    res.appendChild(container)
+    classificaçao = "Magreza"
+    container.style.background = "linear-gradient(to right, #FFFF00, #a0df0c)"
+} else if (IMC <= 24.9) {
+    classificaçao = "Normal"
+    container.style.background = "linear-gradient(to right, #00AF50, #78ffd6)"
+} else if (IMC <= 29.9) {
+    classificaçao = "Sobrepeso"
+    container.style.background = "linear-gradient(to right, #F9BF8F, #6e5138)"
+} else if (IMC <= 34.9) {
+    classificaçao = "Obesidade grau I"
+    container.style.background = "linear-gradient(to right, #FF9B09,rgb(163, 102, 10))"
+} else if (IMC < 39.9) {
+    classificaçao = "Obesidade grau II"
+    container.style.background = "linear-gradient(to right, #FF3737,rgb(141, 6, 6))"
 } else {
-    const container = document.createElement('div')
-    const seuIMC = document.createElement('p')
-    seuIMC.textContent = `Seu IMC é de ${IMC.toFixed(2)} e a classificação é Obesidade grau III`
-    container.appendChild(seuIMC)
-    res.appendChild(container)
+    classificaçao = "Obesidade grau III"
+    container.style.background = "linear-gradient(to right, #FE0000, #FE0000)"
 }
+    
+    const seuIMC = document.createElement('p')
+    seuIMC.textContent = `Seu IMC é de ${IMC.toFixed(2)} e a classificação é ${classificaçao}`
+    container.appendChild(seuIMC)
+
+    const resultadoAnterior = document.querySelector('.resultado-imc')
+
+    if (resultadoAnterior) {
+        resultadoAnterior.remove()
+    }
+
+    res.appendChild(container)
 }

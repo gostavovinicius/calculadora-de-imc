@@ -15,7 +15,23 @@
 body {
     font-family: var(--font-principal);
     color: var(--cor-texto);
-    background-color: var(--cor-fundo);
+    background-image: linear-gradient(to left, rgb(0, 0, 0), rgba(0, 0, 0, 0.747), rgba(0, 0, 0, 0.685)), url('./img/academia.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-size: 24px;
+    margin: auto;
+}
+
+header strong {
+    color: #00AF50;
 }
 
 main {
@@ -37,7 +53,7 @@ main {
     border-radius: 20px;
 }
 
-#tabela-imc div {
+.resultado-imc {
     text-align: center;
     color: var(--cor-fundo);
     font-weight: 600;
@@ -46,9 +62,44 @@ main {
     border-radius: 10px;
 }
 
-th, td {
-    border: 1px solid var(--cor-botao);
+table {
+    border-radius: 10px;
+}
+
+th {
+    background-color: #B8CCE3;
+}
+
+table, th, td {
+    border-collapse: collapse;
+    color: var(--cor-fundo);
+    font-weight: 600;
+    border: 1px solid var(--cor-fundo);
     padding: 8px;
+}
+
+.magreza {
+    background-color: #FFFF00;
+}
+
+.normal {
+    background-color: #00AF50;
+}
+
+.sobrepeso {
+    background-color: #F9BF8F;
+}
+
+.obesidade {
+    background-color: #FF9B09;
+}
+
+.obesidade-severa {
+    background-color: #FF3737;
+}
+
+.obesidade-morbida {
+    background-color: #FE0000;
 }
 
 .conteudo {
@@ -64,7 +115,7 @@ th, td {
 }
 
 label {    
-    width: 40vw;
+    width: 70%;
     font-size: 24px;
     font-weight: 600;
 }
@@ -74,7 +125,7 @@ input {
     border: 1px solid var(--cor-fundo);
     border-radius: 10px;
     padding: 10px;
-    width: 40vw;
+    width: 70%;
     text-align: center;
 }
 
@@ -85,6 +136,24 @@ input {
     color: var(--cor-texto);
     background-color: var(--cor-botao);
     padding: 15px;
-    width: 40vw;
+    width: 70%;
     border-radius: 10px;
+}
+
+@media (min-width: 1024px) {
+    header {
+        font-size: 36px;
+    }
+    main {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .conteudo {
+        width: 30%;
+    }
+
+    #tabela-imc {
+        width: 30%;
+    }
 }
