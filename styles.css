@@ -1,8 +1,8 @@
 :root {
-    --cor-fundo: #202020;
+    --cor-fundo: #dfdede;
     --cor-fundo-conteudo: #393234;
-    --cor-botao: #EB5E55;
-    --cor-texto: #FDF0D5;
+    --cor-botao: #3aec75;
+    --cor-texto: #252525;
     --font-principal: "prompt", sans-serif;
 }
 
@@ -13,147 +13,120 @@
 }
 
 body {
-    font-family: var(--font-principal);
-    color: var(--cor-texto);
-    background-image: linear-gradient(to left, rgb(0, 0, 0), rgba(0, 0, 0, 0.747), rgba(0, 0, 0, 0.685)), url('./img/academia.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-header {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-    font-size: 24px;
-    margin: auto;
-}
-
-header strong {
-    color: #00AF50;
+    min-height: 100vh;
+    background-color: var(--cor-fundo);
+    font-family: var(--font-principal);
 }
 
 main {
-    height: 100vh;
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: space-around;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: white;
+    width: 65%;
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
 }
 
 #tabela-imc {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    gap: 10px;
-    background-color: var(--cor-fundo-conteudo);
-    width: 70%;
     padding: 20px;
-    border-radius: 20px;
 }
 
-.resultado-imc {
+#tabela-imc > h1 {
     text-align: center;
-    color: var(--cor-fundo);
-    font-weight: 600;
-    padding: 10px;
-    background: linear-gradient(to right, #a8ff78, #78ffd6);
-    border-radius: 10px;
+}
+
+#tabela-imc strong {
+    color: var(--cor-botao);
 }
 
 table {
-    border-radius: 10px;
-}
-
-th {
-    background-color: #B8CCE3;
-}
-
-table, th, td {
+    width: 80%;
     border-collapse: collapse;
-    color: var(--cor-fundo);
+    margin-top: 10px;
+}
+
+th, td, tr {
     font-weight: 600;
-    border: 1px solid var(--cor-fundo);
-    padding: 8px;
-}
-
-.magreza {
-    background-color: #FFFF00;
-}
-
-.normal {
-    background-color: #00AF50;
-}
-
-.sobrepeso {
-    background-color: #F9BF8F;
-}
-
-.obesidade {
-    background-color: #FF9B09;
-}
-
-.obesidade-severa {
-    background-color: #FF3737;
-}
-
-.obesidade-morbida {
-    background-color: #FE0000;
+    padding: 10px;
+    border: 1px solid black;
 }
 
 .conteudo {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
-    text-align: center;
-    background-color: var(--cor-fundo-conteudo);
-    width: 70%;
-    padding: 20px;
-    border-radius: 20px;
-}
-
-label {    
-    width: 70%;
+    justify-content: center;
     font-size: 24px;
-    font-weight: 600;
+    padding: 20px;
 }
 
-input {
-    background-color: var(--cor-texto);
-    border: 1px solid var(--cor-fundo);
-    border-radius: 10px;
-    padding: 10px;
+.conteudo input {
     width: 70%;
-    text-align: center;
+    background-color: var(--cor-fundo);
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
 }
 
 .conteudo-botao {
-    font-family: var(--font-principal);
-    font-weight: 600;
-    text-decoration: none;
-    color: var(--cor-texto);
-    background-color: var(--cor-botao);
-    padding: 15px;
     width: 70%;
+    color: var(--cor-texto);
+    text-align: center;
+    font-weight: 600;
+    background-color: var(--cor-botao);
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#resultado-imc {
+    width: 70%;
+    margin-top: 10px;
+}
+
+#dicas {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    padding: 10px;
+    background-color: var(--cor-botao);
+    border-radius: 0px 0px 20px 20px;
+}
+
+#dicas > h2 {
     border-radius: 10px;
 }
 
-@media (min-width: 1024px) {
-    header {
-        font-size: 36px;
-    }
+#dicas > p {
+    width: 50%;
+    margin-top: 10px;
+    text-align: justify;
+}
+
+@media (max-width: 768px) {
     main {
-        flex-direction: row;
-        justify-content: space-around;
+        display: flex;
+        flex-direction: column-reverse;
+        width: 90%;
+        transition: 0.5s;
     }
 
-    .conteudo {
-        width: 30%;
+    table { 
+        width: 90%;
     }
 
-    #tabela-imc {
-        width: 30%;
+    .conteudo input, .conteudo-botao{
+        width: 90%;
     }
 }

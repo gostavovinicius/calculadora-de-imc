@@ -7,42 +7,20 @@
     <title>Calculadora de IMC</title>
 </head>
 <body>
-    <header>
-        <div>
-            <h2>Calculadora<strong>IMC</strong></h2>
-        </div>
-    </header>
     <main>
         <div id="tabela-imc">
+            <h1>Calcule seu <strong>IMC</strong></h1>
             <table>
                 <tr>
                     <th>IMC</th>
                     <th>Classificação</th>
                 </tr>
-                <tr class="magreza">
-                    <td>Menor que 18,5</td>
-                    <td>Magreza</td>
-                </tr>
-                <tr class="normal">
-                    <td>18,5 a 24,9</td>
-                    <td>Normal</td>
-                </tr>
-                <tr class="sobrepeso">
-                    <td>25 a 29,9</td>
-                    <td>Sobrepeso</td>
-                </tr>
-                <tr class="obesidade">
-                    <td>30 a 34,9</td>
-                    <td>Obesidade grau I</td>
-                </tr>
-                <tr class="obesidade-severa">
-                    <td>35 a 39,9</td>
-                    <td>Obesidade grau II</td>
-                </tr>
-                <tr class="obesidade-morbida">
-                    <td>Maior que 40</td>
-                    <td>Obesidade grau III</td>
-                </tr>
+                <tr><td>Menor que 18,5</td><td>Magreza</td></tr>
+                <tr><td>18,5 a 24,9</td><td>Normal</td></tr>
+                <tr><td>25 a 29,9</td><td>Sobrepeso</td></tr>
+                <tr><td>30 a 34,9</td><td>Obesidade grau I</td></tr>
+                <tr><td>35 a 39,9</td><td>Obesidade grau II</td></tr>
+                <tr><td>Maior que 40</td><td>Obesidade grau III</td></tr>
             </table>
         </div>
         <div class="conteudo">
@@ -51,6 +29,12 @@
             <label for="peso">Peso:</label>
             <input type="number" name="peso" id="peso" placeholder="Exemplo: 99">
             <a href="#" onclick="calcular()" class="conteudo-botao">Calcular</a>
+            <div id="resultado-imc">
+            </div>
+        </div>
+        <div id="dicas">
+            <h2>Melhore seu IMC:</h2>
+            <p>Adote uma alimentação balanceada com alimentos naturais, controle porções e pratique exercícios regulares (150 minutos semanais moderados e treinos de força). Mantenha-se hidratado, priorize sono de qualidade (7-9 horas) e evite dietas radicais, monitorando progresso e buscando orientação profissional quando necessário.</p>
         </div>
     </main>
 
