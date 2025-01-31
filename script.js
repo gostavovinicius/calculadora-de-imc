@@ -16,7 +16,7 @@ if (isNaN(suaAltura) || isNaN(seuPeso) || suaAltura <= 1.00 || suaAltura > 2.20 
 
 if (IMC < 18.5) {
     classificacao = "Magreza"
-    if (window.innerWidth >= 768) {
+    if (window.innerWidth >= 1024) {
         dica.style.display = 'flex'
     }
 } else if (IMC <= 24.9) {
@@ -24,26 +24,35 @@ if (IMC < 18.5) {
     dica.style.display = 'none'
 } else if (IMC <= 29.9) {
     classificacao = "Sobrepeso"
-    if (window.innerWidth >= 768) {
+    if (window.innerWidth >= 1024) {
         dica.style.display = 'flex'
     }
 } else if (IMC <= 34.9) {
     classificacao = "Obesidade grau I"
-    if (window.innerWidth >= 768) {
+    if (window.innerWidth >= 1024) {
         dica.style.display = 'flex'
     }
 } else if (IMC < 39.9) {
     classificacao = "Obesidade grau II"
-    if (window.innerWidth >= 768) {
+    if (window.innerWidth >= 1024) {
         dica.style.display = 'flex'
     }
 } else {
     classificacao = "Obesidade grau III"
-    if (window.innerWidth >= 768) {
+    if (window.innerWidth >= 1024) {
         dica.style.display = 'flex'
     }
 }
+    res.style.display = 'block'
     res.innerHTML = '';
-    res.innerHTML = `<p>Seu IMC é de ${IMC.toFixed(2)} e a classificação é ${classificacao}</p>`
-
+    res.innerHTML = `<p>Seu IMC é de <strong>${IMC.toFixed(2)}</strong> e a classificação é <strong>${classificacao}</strong></p>`
 }
+
+function verificarTamanhoTela() {
+    const dica = document.getElementById('dicas')
+    if (window.innerWidth < 1024) {
+        dica.style.display = 'none'
+    }
+}
+
+window.addEventListener('resize', verificarTamanhoTela)
