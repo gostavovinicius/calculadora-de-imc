@@ -6,7 +6,7 @@ const seuPeso = parseFloat(document.getElementById('peso').value)
 
 
 
-if (isNaN(suaAltura) || isNaN(seuPeso) || suaAltura <= 1.00 || suaAltura > 2.20 || seuPeso <= 0 || seuPeso >= 200 || !suaAltura || !seuPeso) {
+if (isNaN(suaAltura) || isNaN(seuPeso) || suaAltura <= 0 || suaAltura > 2.20 || seuPeso <= 0 || seuPeso >= 200 || !suaAltura || !seuPeso) {
     alert("Por favor, insira números válidos. Exemplos: Altura (1.93) e Peso (99). Altura entre 1.00 e 2.20 metros e Peso entre 0 e 200 kg.")
     return
 }
